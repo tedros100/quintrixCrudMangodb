@@ -1,0 +1,63 @@
+db.createCollection("operate")
+
+
+db.operate.insert({
+    enrollno: "110470116021",
+    name: "Krunal Lathiya",
+        college: "VVP Engineering College",
+    course: {
+        courseName: "BE IT",
+        duration: "4 Years"
+    },
+    address: {
+        city: "Rajkot",
+        state: "Gujarat",
+        country: "India"
+    }
+})
+
+db.operate.find().pretty()  //You can check it by fetching that document using this query.
+
+db.operate.insertMany([{
+    enrollno: "110470116021",
+    name: "Krunal Lathiya",
+  college: "VVP Engineering College",
+    course: {
+        courseName: "BE IT",
+        duration: "4 Years"
+    },
+    address: {
+        city: "Rajkot",
+        state: "Gujarat",
+        country: "India"
+    }
+},{
+  enrollno: "110470116022",
+    name: "Rushikesh Vekariya",
+  college: "VVP Engineering College",
+    course: {
+        courseName: "BE IT",
+        duration: "4 Years"
+    },
+    address: {
+        city: "Rajkot",
+        state: "Gujarat",
+        country: "India"
+    }
+}])
+
+db.collection.find()	//retrieve all the documents	
+
+
+db.operate.updateOne(
+  { name: "Rushikesh Vekariya" },
+  {
+    $set: {college: "Marwadi"}
+  }
+)
+
+
+
+db.operate.deleteOne(
+  { name : "Krunal Lathiya" }
+)
